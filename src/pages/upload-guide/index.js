@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Back from "./../../assets/svg/back.svg";
 import { useNavigate } from "react-router-dom";
 import Avatars from "./../../assets/images/avatars.png";
@@ -11,9 +11,14 @@ import CheckIcon from "./../../assets/svg/check.svg";
 import CrossIcon from "./../../assets/svg/cross.svg";
 import BlubIcon from "./../../assets/svg/blub.svg";
 import LayOut from "../../layout";
+import { MyContext } from "../../App";
+import { SERVER } from "../../config/site";
+import checkImage from "../../utils/checkImage";
 const UploadGuide = () => {
+  const {uploadedImage} = useContext(MyContext)
   const navigate = useNavigate();
   const [details, setDetails] = useState(true);
+  const {setProgress, setGeneratedImages, setProgressImage} = useContext(MyContext)
   const List = [
     {
       img: UploadGuide1,
@@ -36,6 +41,44 @@ const UploadGuide = () => {
       check: false,
     },
   ];
+  const generateImage = () => {
+    // navigate("/gallery")
+    fetch(SERVER+'/generate-image', {
+      method: 'POST', 
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: "Generate a cat image"
+      })
+    })
+    .then(res=>res.json())
+    .then(res=>{
+      if(res.success){
+        // console.log(res.messageId);
+        setTimeout(() => {
+          setProgress(20);
+          let myInterval = setInterval(() => {
+            checkImage(res.messageId).then((checkRes) => {
+           
+              if(checkRes.progress > 20 ){
+                setProgress(checkRes.progress);
+              }
+              if (checkRes.progress == 100) {
+                clearInterval(myInterval);
+              }
+              if (checkRes.images) {
+                setGeneratedImages(checkRes.images);
+              }
+              if (checkRes.progressImage) {
+                setProgressImage(checkRes.progressImage);
+              }
+            });
+          }, 5000);
+        }, 20000);
+      }
+    })
+  }
   return (
     <LayOut>
     <div className="upload-guide-container">
@@ -72,7 +115,7 @@ const UploadGuide = () => {
           style={{ justifyContent: details ? "space-between" : "center" }}
         >
           <div className="upload-guide-sec-2">
-            <img src={Avatars} />
+            <img src={uploadedImage} />
             <button className="upload-guide-sec-2-face-button">
               Face Recognizing
             </button>
@@ -88,7 +131,7 @@ const UploadGuide = () => {
               </label>
               <button
                 className="next-button"
-                onClick={() => navigate("/gallery")}
+                onClick={generateImage}
               >
                 Next
               </button>

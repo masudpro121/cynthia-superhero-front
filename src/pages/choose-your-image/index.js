@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ChoseImage1 from "./../../assets/images/chose-image-1.png";
 import ChoseImage2 from "./../../assets/images/chose-image-2.png";
 import ChoseImage3 from "./../../assets/images/chose-image-3.png";
@@ -7,7 +7,9 @@ import ChoseImage5 from "./../../assets/images/chose-image-5.png";
 import ChoseImage6 from "./../../assets/images/chose-image-6.png";
 import LayOut from "../../layout";
 import { SERVER } from "../../config/site";
+import { MyContext } from "../../App";
 const ChoseYourImage = () => {
+  const {setUploadedImage} = useContext(MyContext)
   const [selected, setSelected] = useState("");
   const List = [
     ChoseImage1,
@@ -27,7 +29,9 @@ const ChoseYourImage = () => {
     })
     .then(res=>res.json())
     .then(res=>{
-      console.log(res, 'image uploaded');
+      if(res.img){
+        setUploadedImage(res.img)
+      }
     })
     // navigate("/upload-guide");
   };

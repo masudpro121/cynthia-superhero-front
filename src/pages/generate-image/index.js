@@ -9,8 +9,12 @@ const GenerateImage = () => {
   console.log(uploadedImage, 'img');
   return (
     <div>
-      <ChoseYourImage />
-      {/* <UploadGuide /> */}
+      {
+        uploadedImage? 
+          <UploadGuide />
+        : <ChoseYourImage />
+      }
+      
       {/* <Gallery /> */}
     </div>
   )
