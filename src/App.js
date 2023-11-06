@@ -9,8 +9,15 @@ import "./styles/layout.css";
 export const MyContext = createContext()
 const App = () => {
   const [uploadedImage, setUploadedImage] = useState("")
-  
-  const value = {uploadedImage, setUploadedImage}
+  const [progress, setProgress] = useState()
+  const [generatedImages, setGeneratedImages] = useState([])
+  const [progressImage, setProgressImage] = useState("")
+  const value = {
+    uploadedImage, setUploadedImage,
+    progress, setProgress,
+    generatedImages, setGeneratedImages,
+    progressImage, setProgressImage
+  }
   return (
       <MyContext.Provider value={value}>
         <RouterNavigation />
