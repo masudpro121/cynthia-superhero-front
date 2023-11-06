@@ -1,0 +1,23 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Sora";
+}
+body {
+  background-color: #7667ff;
+}
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  background: none;
+  outline: none;
+  border: none;
+}
+input[type="file"] {
+  display: none;
+}

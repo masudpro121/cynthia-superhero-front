@@ -1,0 +1,290 @@
+.upload-guide-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 5%;
+  min-height: 89vh;
+  overflow: auto;
+}
+.upload-guide-container-2 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  justify-content: space-between;
+  width: 100%;
+}
+.upload-guide-container-inner {
+  display: flex;
+  flex-direction: row;
+  width: 64%;
+}
+.upload-guide-sec-1 {
+  width: 33%;
+}
+.upload-guide-sec-1-inner {
+  background-color: #d5d8ff;
+  border-radius: 20px;
+  padding: 15px;
+}
+.upload-guide-sec-1-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.upload-guide-sec-1-header > h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #150245;
+}
+.upload-guide-sec-1-header > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.upload-guide-sec-1-header > div > button {
+  font-size: 14px;
+  font-weight: 400;
+  color: #7667ff;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+.upload-guide-sec-1-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.upload-guide-sec-1-list > div {
+  border-radius: 5px;
+  margin-top: 15px;
+  width: 49%;
+}
+.upload-guide-sec-1-list > div > img {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+}
+.upload-guide-sec-1-list > div > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+}
+.upload-guide-sec-1-list > div > div > img {
+  width: 20px;
+  height: 20px;
+}
+.upload-guide-sec-1-list > div > div > span {
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  margin-left: 5px;
+}
+.upload-guide-sec-2 {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+.upload-guide-sec-2 > img {
+  height: 302px;
+  border: 5px solid #d5d8ff;
+  max-width: 100%;
+}
+.upload-guide-sec-2-face-button {
+  background-color: #d5d8ff;
+  height: 66px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: #150245;
+  margin-top: 15px;
+}
+.upload-guide-sec-2 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.reupload-button {
+  background-color: #d5d8ff;
+  font-size: 16px;
+  font-weight: 700;
+  color: #150245;
+  width: 178px;
+  height: 56px;
+  border-radius: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.reupload-button > img {
+  margin-right: 10px;
+}
+.next-button {
+  width: 156px;
+  height: 56px;
+  border-radius: 48px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #150245;
+  background-color: #fee26f;
+  margin-left: 10px;
+}
+.add-details-button {
+  width: 156px;
+  height: 56px;
+  border-radius: 48px;
+  border: 2px solid #fee26f;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  align-self: center;
+}
+.upload-guide-sec-3 {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+.upload-guide-sec-3 > h6 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.upload-guide-sec-3 > input {
+  height: 50px;
+  border-radius: 5px;
+  background-color: #d5d8ff;
+  padding: 0px 10px;
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 15px;
+}
+.save-button {
+  width: 156px;
+  height: 56px;
+  border-radius: 48px;
+  border: 2px solid #fee26f;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .upload-guide-sec-1-header > h1 {
+    font-size: 20px;
+  }
+  .upload-guide-sec-1-list > div > img {
+    height: 180px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .upload-guide-sec-1-header > h1 {
+    font-size: 16px;
+  }
+  .upload-guide-sec-1-header > div > button {
+    font-size: 12px;
+  }
+  .upload-guide-sec-1-list > div > img {
+    height: 150px;
+  }
+  .upload-guide-sec-1-list > div > div > img {
+    width: 15px;
+    height: 15px;
+  }
+  .upload-guide-sec-1-list > div > div > span {
+    font-size: 14px;
+  }
+  .upload-guide-sec-2 > img {
+    height: 250px;
+  }
+  .upload-guide-sec-2-face-button {
+    height: 56px;
+  }
+  .reupload-button {
+    font-size: 14px;
+    width: 178px;
+    height: 50px;
+  }
+  .next-button {
+    height: 50px;
+    font-size: 14px;
+  }
+  .save-button {
+    height: 50px;
+    font-size: 14px;
+  }
+  .upload-guide-sec-3 > h6 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .upload-guide-sec-3 > input {
+    height: 45px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .add-details-button {
+    height: 50px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .upload-guide-container-2 {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .upload-guide-sec-1 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .upload-guide-container-inner {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .upload-guide-sec-1-list > div > img {
+    height: 250px;
+  }
+  .upload-guide-sec-1-list > div > div > img {
+    width: 25px;
+    height: 25px;
+  }
+  .upload-guide-sec-1-list > div > div > span {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .upload-guide-container-inner {
+    flex-direction: column;
+  }
+  .upload-guide-sec-2 {
+    width: 100%;
+  }
+  .upload-guide-sec-3 {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .upload-guide-sec-1-list > div > img {
+    height: 150px;
+  }
+  .upload-guide-sec-1-list > div > div > img {
+    width: 15px;
+    height: 15px;
+  }
+  .upload-guide-sec-1-list > div > div > span {
+    font-size: 14px;
+  }
+}
