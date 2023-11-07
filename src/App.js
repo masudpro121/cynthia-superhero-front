@@ -9,14 +9,16 @@ import "./styles/layout.css";
 export const MyContext = createContext()
 const App = () => {
   const [uploadedImage, setUploadedImage] = useState("")
-  const [progress, setProgress] = useState()
+  const [progress, setProgress] = useState(0)
   const [generatedImages, setGeneratedImages] = useState([])
   const [progressImage, setProgressImage] = useState("")
+  const [step, setStep] = useState(0)
   const value = {
     uploadedImage, setUploadedImage,
     progress, setProgress,
     generatedImages, setGeneratedImages,
-    progressImage, setProgressImage
+    progressImage, setProgressImage,
+    step, setStep
   }
   return (
       <MyContext.Provider value={value}>

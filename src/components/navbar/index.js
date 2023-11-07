@@ -8,11 +8,11 @@ const Navbar = () => {
   return (
     <div id="navbar">
       <div>
-        <img src={Logo} onClick={() => navigate("/")} />
+        <img alt=" " src={Logo} onClick={() => navigate("/")} />
         <button>
-          <img src={User} id="navbar-user-icon" />
+          <img alt=" " src={User} id="navbar-user-icon" />
           <span>AI AVATAR</span>
-          <img src={Down} id="navbar-down-icon" />
+          <img alt=" " src={Down} id="navbar-down-icon" />
         </button>
       </div>
       {/* <button id="navbar-generated-avatars" onClick={() => navigate("/gallery")}>

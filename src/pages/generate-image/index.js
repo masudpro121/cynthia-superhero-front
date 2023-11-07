@@ -5,17 +5,17 @@ import ChoseYourImage from "../choose-your-image"
 import { MyContext } from "../../App"
 
 const GenerateImage = () => {
-  const {uploadedImage} = useContext(MyContext)
+  const {uploadedImage, step} = useContext(MyContext)
   console.log(uploadedImage, 'img');
   return (
     <div>
       {
-        uploadedImage? 
-          <UploadGuide />
-        : <ChoseYourImage />
+        step == 0? 
+        <ChoseYourImage />
+        : step== 1? <UploadGuide />
+        : step ==2 && <Gallery />
       }
       
-      {/* <Gallery /> */}
     </div>
   )
 }

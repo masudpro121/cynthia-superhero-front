@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import DownloadIcon from "./../../assets/svg/download.svg";
 import VerticalIcon from "./../../assets/svg/vertical.svg";
 import Gallery1 from "./../../assets/images/gallery-1.png";
@@ -11,7 +11,11 @@ import Gallery7 from "./../../assets/images/gallery-7.png";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LayOut from "../../layout";
+import { MyContext } from "../../App";
 const Gallery = () => {
+  const {generatedImages, progressImage, progress} = useContext(MyContext)
+  console.log(progress, 'progress');
+  console.log(progressImage,'progressimage');
   const List = [
     Gallery1,
     Gallery2,
@@ -24,22 +28,33 @@ const Gallery = () => {
   return (
     <LayOut>
       <div className="gallery-container">
-        <Box sx={{ flexGrow: 1 }}>
+        {
+          progress < 100 && <div style={{textAlign:'center', color:'white'}}>Progress: {progress}%</div>
+        }
+        {
+          progress < 100 && progressImage && 
+          <div style={{display:'flex', justifyContent:'center', margin: '10px'}}>
+            <img alt=" " src={progressImage} />
+          </div>
+        }
+        {
+          progress == 100 && 
+          <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
-            {List.map((itme, index) => {
+            {generatedImages?.map((item, index) => {
               return (
-                <Grid item xl={2} lg={3} md={4} sm={6} xs={12}>
+                <Grid key={index} item xl={2} lg={3} md={4} sm={6} xs={12}>
                   <div key={index} className="gallery-list">
-                    <img src={itme} />
+                    <img alt=" " src={item} />
                     <div>
                       <button id="download-button">
-                        <a href={itme} download>
-                          <img src={DownloadIcon} />
+                        <a target="_blank" href={item} download>
+                          <img alt=" " src={DownloadIcon} />
                           M3.png
                         </a>
                       </button>
                       <button>
-                        <img src={VerticalIcon} />
+                        <img alt=" " src={VerticalIcon} />
                       </button>
                     </div>
                   </div>
@@ -48,6 +63,7 @@ const Gallery = () => {
             })}
           </Grid>
         </Box>
+        }
       </div>
     </LayOut>
   );

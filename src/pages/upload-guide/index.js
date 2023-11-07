@@ -15,10 +15,9 @@ import { MyContext } from "../../App";
 import { SERVER } from "../../config/site";
 import checkImage from "../../utils/checkImage";
 const UploadGuide = () => {
-  const {uploadedImage} = useContext(MyContext)
   const navigate = useNavigate();
   const [details, setDetails] = useState(true);
-  const {setProgress, setGeneratedImages, setProgressImage} = useContext(MyContext)
+  const {setProgress, uploadedImage, setGeneratedImages, setProgressImage, generatedImages, setStep} = useContext(MyContext)
   const List = [
     {
       img: UploadGuide1,
@@ -49,13 +48,14 @@ const UploadGuide = () => {
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify({
-        prompt: "Generate a cat image"
+        prompt: uploadedImage + ", wearing superhero jacket. The person is wearing a white and black jacket with gold accents. The jacket has a gold H and CON on the chest. The background is a purple and blue gradient with a cloudy texture.  "
+        // prompt: uploadedImage + ", A person wearing a superhero costume. The background is a purple and blue gradient with a cloudy texture. The person is wearing a white and black suit with gold accents. The suit has a gold H and CON on the chest. "
       })
     })
     .then(res=>res.json())
     .then(res=>{
       if(res.success){
-        // console.log(res.messageId);
+        setStep(2)
         setTimeout(() => {
           setProgress(20);
           let myInterval = setInterval(() => {
@@ -75,6 +75,7 @@ const UploadGuide = () => {
               }
             });
           }, 5000);
+          
         }, 20000);
       }
     })
@@ -83,7 +84,7 @@ const UploadGuide = () => {
     <LayOut>
     <div className="upload-guide-container">
       <button onClick={() => navigate(-1)}>
-        <img src={Back} />
+        <img alt=" " src={Back} />
       </button>
       <div className="upload-guide-container-2">
         <div className="upload-guide-sec-1">
@@ -91,7 +92,7 @@ const UploadGuide = () => {
             <div className="upload-guide-sec-1-header">
               <h1>Upload Guide</h1>
               <div>
-                <img src={BlubIcon} />
+                <img alt=" " src={BlubIcon} />
                 <button>Photo Uploading Guide</button>
               </div>
             </div>
@@ -99,9 +100,9 @@ const UploadGuide = () => {
               {List.map((item, index) => {
                 return (
                   <div key={index}>
-                    <img src={item.img} />
+                    <img alt=" " src={item.img} />
                     <div>
-                      <img src={item.check ? CheckIcon : CrossIcon} />
+                      <img alt=" " src={item.check ? CheckIcon : CrossIcon} />
                       <span>{item.title}</span>
                     </div>
                   </div>
@@ -115,17 +116,17 @@ const UploadGuide = () => {
           style={{ justifyContent: details ? "space-between" : "center" }}
         >
           <div className="upload-guide-sec-2">
-            <img src={uploadedImage} />
+            <img alt=" " src={uploadedImage} />
             <button className="upload-guide-sec-2-face-button">
               Face Recognizing
             </button>
             <div>
               {/* <button className="reupload-button">
-                  <img src={UploadIcon} />
+                  <img alt=" " src={UploadIcon} />
                   Reupload
                 </button> */}
               <label className="reupload-button">
-                <img src={UploadIcon} />
+                <img alt=" " src={UploadIcon} />
                 Reupload
                 <input type="file" accept="image/*" />
               </label>

@@ -9,7 +9,7 @@ import LayOut from "../../layout";
 import { SERVER } from "../../config/site";
 import { MyContext } from "../../App";
 const ChoseYourImage = () => {
-  const {setUploadedImage} = useContext(MyContext)
+  const {setUploadedImage, setStep} = useContext(MyContext)
   const [selected, setSelected] = useState("");
   const List = [
     ChoseImage1,
@@ -31,6 +31,7 @@ const ChoseYourImage = () => {
     .then(res=>{
       if(res.img){
         setUploadedImage(res.img)
+        setStep(1)
       }
     })
     // navigate("/upload-guide");
@@ -50,7 +51,7 @@ const ChoseYourImage = () => {
                     borderColor: selected === item ? "#FEE26F" : "transparent",
                   }}
                 >
-                  <img src={item} />
+                  <img alt=" " src={item} />
                 </button>
               );
             })}
@@ -65,7 +66,7 @@ const ChoseYourImage = () => {
                     borderColor: selected === item ? "#FEE26F" : "transparent",
                   }}
                 >
-                  <img src={item} />
+                  <img alt=" " src={item} />
                 </button>
               );
             })}
