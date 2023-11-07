@@ -15,7 +15,7 @@ const Home = () => {
           <button onClick={() => {
             setStep(0)
             setProgress(0)
-            setProgressImage("")
+            setProgressImage()
             navigate("/generate-image")
           }}>
             Upload Image to Make Avatar

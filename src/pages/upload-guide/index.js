@@ -48,8 +48,9 @@ const UploadGuide = () => {
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify({
-        prompt: uploadedImage + ", wearing superhero jacket. The person is wearing a white and black jacket with gold accents. The jacket has a gold H and CON on the chest. The background is a purple and blue gradient with a cloudy texture.  "
-        // prompt: uploadedImage + ", A person wearing a superhero costume. The background is a purple and blue gradient with a cloudy texture. The person is wearing a white and black suit with gold accents. The suit has a gold H and CON on the chest. "
+        prompt: uploadedImage + ", a person dressed as a superhero.  The costume has a CON and H on the chest that incorporates advanced technology and features, represents a unique and powerful superhero costume with a distinct color scheme and emblem, unique powers and personality "
+        // prompt: uploadedImage + ", a person dressed as a superhero.  superhero jacket with gold accents. The costume has a gold CON and H on the chest. The background is a purple and blue gradient with a cloudy texture. "
+        // prompt: uploadedImage + ", a person dressed as a superhero. white and black superhero costume with gold accents. The costume has a gold CON and H on the chest. The background is a purple and blue gradient with a cloudy texture. "
       })
     })
     .then(res=>res.json())

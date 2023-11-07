@@ -32,7 +32,7 @@ const Gallery = () => {
           progress < 100 && <div style={{textAlign:'center', color:'white'}}>Progress: {progress}%</div>
         }
         {
-          progress < 100 && progressImage && 
+          progress > 0 && progress < 100 && progressImage && 
           <div style={{display:'flex', justifyContent:'center', margin: '10px'}}>
             <img alt=" " src={progressImage} />
           </div>
