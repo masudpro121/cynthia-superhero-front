@@ -48,9 +48,10 @@ const UploadGuide = () => {
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify({
-        prompt: uploadedImage + ", a person dressed as a superhero.  The costume has a CON and H on the chest that incorporates advanced technology and features, represents a unique and powerful superhero costume with a distinct color scheme and emblem, unique powers and personality "
-        // prompt: uploadedImage + ", a person dressed as a superhero.  superhero jacket with gold accents. The costume has a gold CON and H on the chest. The background is a purple and blue gradient with a cloudy texture. "
-        // prompt: uploadedImage + ", a person dressed as a superhero. white and black superhero costume with gold accents. The costume has a gold CON and H on the chest. The background is a purple and blue gradient with a cloudy texture. "
+        // prompt: uploadedImage + ", an illustration of a traditional male superhero wearing a superhero outfit, white background, the superhero has strong and charismatic and intelligent facial features, cinematic lighting, detailed, illustration, --ar 9:16 --no cape blazer glasses"
+        // prompt: uploadedImage + ", a person dressed as a superhero.  The costume has a CON and H on the chest that incorporates advanced technology and features, represents a unique and powerful superhero costume with a distinct color scheme and emblem, unique powers and personality "
+        prompt: uploadedImage + ", a person dressed as a superhero.  The costume has a CON and H on the chest that incorporates advanced technology and features, represents a unique and powerful superhero costume with a distinct color scheme and emblem, unique powers and personality. cinematic lighting, detailed, illustration, --ar 9:16 --no cape blazer glasses costume. use these color on costume, hexa color code: #7769ff & #ffe67a"
+        
       })
     })
     .then(res=>res.json())

@@ -13,6 +13,8 @@
   width: 100%;
   border-radius: 11.83px;
   height: 252px;
+  object-fit: cover;
+  object-position: top;
 }
 .gallery-list > div {
   display: flex;
@@ -25,7 +27,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
 }
 #download-button >a> img {
   margin-right: 5px;

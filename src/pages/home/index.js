@@ -13,9 +13,9 @@ const Home = () => {
           <h1>Amazing Avatar Maker</h1>
           <p>Create your own hero-Image AI Avatar with SOSAFE</p>
           <button onClick={() => {
-            setStep(0)
             setProgress(0)
             setProgressImage()
+            setStep(0)
             navigate("/generate-image")
           }}>
             Upload Image to Make Avatar
