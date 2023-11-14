@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Back from "./../../assets/svg/back.svg";
 import { useNavigate } from "react-router-dom";
 import Avatars from "./../../assets/images/avatars.png";
@@ -40,6 +40,12 @@ const UploadGuide = () => {
       check: false,
     },
   ];
+
+  useEffect(()=>{
+    if(!uploadedImage){
+      navigate("/");
+    }
+  },[])
   const generateImage = () => {
     // navigate("/gallery")
     fetch(SERVER+'/generate-image', {
@@ -48,16 +54,17 @@ const UploadGuide = () => {
         'Content-Type' : 'application/json'
       },
       body: JSON.stringify({
-        // prompt: uploadedImage + ", an illustration of a traditional male superhero wearing a superhero outfit, white background, the superhero has strong and charismatic and intelligent facial features, cinematic lighting, detailed, illustration, --ar 9:16 --no cape blazer glasses"
-        // prompt: uploadedImage + ", a person dressed as a superhero.  The costume has a CON and H on the chest that incorporates advanced technology and features, represents a unique and powerful superhero costume with a distinct color scheme and emblem, unique powers and personality "
-        prompt: uploadedImage + ", a person dressed as a superhero.  The costume has a CON and H on the chest that incorporates advanced technology and features, represents a unique and powerful superhero costume with a distinct color scheme and emblem, unique powers and personality. cinematic lighting, detailed, illustration, --ar 9:16 --no cape blazer glasses costume. use these color on costume, hexa color code: #7769ff & #ffe67a"
+        prompt: uploadedImage + ", a person dressed as a superhero.  The costume has a CON and H on the chest that incorporates advanced technology and features, represents a unique and powerful superhero costume with a distinct color scheme and emblem, unique powers and personality. cinematic lighting, detailed, illustration, --ar 9:16 --no cape blazer glasses costume. use these color on costume, hexa color code: #7769ff & #ffe67a. and use solid background color."
         
       })
     })
     .then(res=>res.json())
     .then(res=>{
       if(res.success){
-        setStep(2)
+        setStep(1)
+        setTimeout(()=>{
+          setProgress(10)
+        },5000)
         setTimeout(() => {
           setProgress(20);
           let myInterval = setInterval(() => {
@@ -119,14 +126,10 @@ const UploadGuide = () => {
         >
           <div className="upload-guide-sec-2">
             <img alt=" " src={uploadedImage} />
-            <button className="upload-guide-sec-2-face-button">
+            {/* <button className="upload-guide-sec-2-face-button">
               Face Recognizing
-            </button>
+            </button> */}
             <div>
-              {/* <button className="reupload-button">
-                  <img alt=" " src={UploadIcon} />
-                  Reupload
-                </button> */}
               <label className="reupload-button">
                 <img alt=" " src={UploadIcon} />
                 Reupload
@@ -139,28 +142,7 @@ const UploadGuide = () => {
                 Next
               </button>
             </div>
-            {!details && (
-              <button
-                className="add-details-button"
-                onClick={() => setDetails(true)}
-              >
-                Add Details
-              </button>
-            )}
           </div>
-          {details && (
-            <div className="upload-guide-sec-3">
-              <h6>Name</h6>
-              <input type="text" />
-              <h6>Job</h6>
-              <input type="text" />
-              <h6>Company</h6>
-              <input type="text" />
-              <button className="save-button" >
-                Save
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>

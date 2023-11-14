@@ -10,10 +10,8 @@ const GenerateImage = () => {
   return (
     <div>
       {
-        step == 0? 
-        <ChoseYourImage />
-        : step== 1? <UploadGuide />
-        : step ==2 && <Gallery />
+       step== 0? <UploadGuide />
+        : step ==1 && <Gallery />
       }
       
     </div>

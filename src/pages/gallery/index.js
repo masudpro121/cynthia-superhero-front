@@ -29,11 +29,14 @@ const Gallery = () => {
     <LayOut>
       <div className="gallery-container">
         {
-          progress < 100 && <div style={{textAlign:'center', color:'white'}}>Progress: {progress}%</div>
+          progress < 100 && <div style={{textAlign:'center', color:'white'}}>Scanning Data...</div>
         }
         {
-          progress > 0 && progress < 100 && progressImage && 
-          <div style={{display:'flex', justifyContent:'center', margin: '10px'}}>
+          progress > 9 && progress != 100 && <div style={{textAlign:'center', color:'white', marginTop:'10px'}}>Image processing...</div>
+        }
+        {
+          progress > 20 && progress < 100 && progressImage && 
+          <div style={{display:'flex', justifyContent:'center', margin: '10px', marginTop:'20px'}}>
             <img alt=" " src={progressImage} />
           </div>
         }
